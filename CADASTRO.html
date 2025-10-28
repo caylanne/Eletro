@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="assets/img/ELETRO-SEM-FUNDO-Copia.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/CADASTRO.css">
+    <title>Cadastro</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="container-container">
+
+            <h1>Cadastro</h1>
+            <br>
+            <img src="assets/img/ELETRO+ SEM FUNDO.png" alt="" class="imgm">
+            <div class="header-buttons">
+                <button class="header-btn active" id="btn-cadastrar">Cadastrar</button>
+                <button class="header-btn" id="btn-login">Login</button>
+            </div>
+
+            <div class="form">
+                <form action="#" id="form-register">
+                    <div class="inputs">
+                        <label for="pnome"><Strong>Nome:</Strong> </label>
+                        <input type="text" id="pnome" name="pnome" placeholder="Seu Nome">
+                        <br>
+
+                        <label for="snome"><Strong>Sobrenome:</Strong> </label>
+                        <input type="text" id="snome" name="snome" placeholder="Seu Sobrenome">
+
+                        <br>
+                        <label for="e-mail"><Strong>Digite seu e-mail:</Strong> </label>
+                        <input type="email" id="e-mail" name="e-mail" placeholder="fulano@gamil.com">
+
+                        <br>
+                        <label for="fone"><Strong>Digite seu N:</Strong> </label>
+                        <input type="tel" id="fone" name="fone" placeholder="(83) 9 9999-9999">
+
+                        <br>
+                        <label for="senha"><Strong>Digite sua senha</Strong> </label>
+                        <input type="password" id="senha" name="senha" placeholder=".............">
+
+                        <br>
+                        <label for="csenha"><Strong>Confirme sua senha:</Strong> </label>
+                        <input type="password" id="csenha" name="csenha" placeholder=".............">
+
+                        <br><br>
+                        <button type="submit" class="butn">Cadastrar</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('form-register').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const password = document.getElementById('senha').value;
+            const confirmPassword = document.getElementById('csenha').value;
+
+            if (password !== confirmPassword) {
+                alert('As senhas não coincidem!');
+                return;
+            }
+
+            // Aqui você normalmente enviaria os dados para o servidor
+            alert('Cadastro realizado com sucesso!');
+            this.reset();
+        });
+    </script>
+
+</body>
+
+</html>
