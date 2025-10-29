@@ -39,7 +39,15 @@ body {
     cursor: pointer;
 }
 
-h2{
+.btn svg {
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    fill: white;
+}
+
+
+h2 {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color: white;
