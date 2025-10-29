@@ -11,6 +11,15 @@ body {
     justify-content: center;
     height: 100%;
 }
+.body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("logo.png") no-repeat center;
+  background-size: 400px auto;
+  opacity: 0.08; /* deixa ela bem clarinha */
+  z-index: -1;
+}
 
 .card {
     background-color: #70A1B3;
