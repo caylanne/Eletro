@@ -1,70 +1,109 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="shortcut icon" href="assets/img/ELETRO-SEM-FUNDO-Copia.ico" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/CADASTRO.css">
-    <title>Cadastro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Eletro+</title>
+  <link rel="shortcut icon" href="assets/img/ELETRO-SEM-FUNDO-Copia.ico" type="image/x-icon">
+  <link rel="stylesheet" href="assets/css/CADASTRO.css">
 </head>
+
 <body>
-    
-    <div class="container">
-        <div class="container-container">
-            <h1>Cadastre-se</h1>
-            <img src="assets/img/ELETRO+ SEM FUNDO.png" alt="" class="imgm">
-            <div class="header-buttons">
-                <a href="loginELETRO.html" target="_self">
-                  <button class="header-btn active" id="btn-cadastrar">Cadastrar</button>
-                  <button class="header-btn" id="btn-login">Login</button>
-                </a>
-            </div>
+
+  <div class="container">
+    <div class="container-container">
+      <h1>Cadastre-se</h1>
+
+      <img src="assets/img/ELETRO+ SEM FUNDO.png" alt="Logo Eletro+" class="imgm">
+
+      <div class="header-buttons">
+        <button class="header-btn active" id="btn-cadastrar">Cadastrar</button>
+        <a href="loginELETRO.html">
+          <button class="header-btn" id="btn-login">Login</button>
+        </a>
+      </div>
+
+      <div class="form">
+        <form id="form-register">
+          <div class="inputs">
             
-            <div class="form">
-                <form action="#" id="form-register">
-                    <div class="inputs">
-                        <label for="pnome"><strong>Nome:</strong></label>
-                        <input type="text" id="pnome" name="pnome" placeholder="Seu Nome" required>
-                        
-                        <label for="snome"><strong>Sobrenome:</strong></label>
-                        <input type="text" id="snome" name="snome" placeholder="Seu Sobrenome" required>
-                        
-                        <label for="e-mail"><strong>Digite seu e-mail:</strong></label>
-                        <input type="email" id="e-mail" name="e-mail" placeholder="fulano@gmail.com" required>
-                        
-                        <label for="fone"><strong>Celular:</strong></label>
-                        <input type="tel" id="fone" name="fone" placeholder="(83) 9 9999-9999" required>
-                        
-                        <label for="senha"><strong>Digite sua senha</strong></label>
-                        <input type="password" id="senha" name="senha" placeholder="************" required>
-                        
-                        <label for="csenha"><strong>Confirme sua senha:</strong></label>
-                        <input type="password" id="csenha" name="csenha" placeholder="************" required>
-                        
-                        <a href="telaInicial.html" target="_self" class="butn"> Cadastrar</a>
-                    </div>
-                </form>
-            </div>
-        </div>
+            <label for="pnome"><strong>Nome:</strong></label>
+            <input type="text" id="pnome" name="pnome" placeholder="Seu nome" required>
+
+            <label for="snome"><strong>Sobrenome:</strong></label>
+            <input type="text" id="snome" name="snome" placeholder="Seu sobrenome" required>
+
+            <label for="email"><strong>E-mail:</strong></label>
+            <input type="email" id="email" name="email" placeholder="fulano@gmail.com" required>
+
+            <label for="fone"><strong>Celular:</strong></label>
+            <input type="tel" id="fone" name="fone" placeholder="(83) 99999-9999" 
+                   pattern="\(\d{2}\)\s9\s\d{4}-\d{4}" title="Formato: (83) 9 9999-9999" required>
+
+            <label for="senha"><strong>Senha:</strong></label>
+            <input type="password" id="senha" name="senha" minlength="6" placeholder="********" required>
+
+            <label for="csenha"><strong>Confirme sua senha:</strong></label>
+            <input type="password" id="csenha" name="csenha" minlength="6" placeholder="********" required>
+
+            <button type="submit" class="butn">Cadastrar</button>
+          </div>
+        </form>
+      </div>
     </div>
-    <!-- <script>
-        document.getElementById('form-register').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const password = document.getElementById('senha').value;
-            const confirmPassword = document.getElementById('csenha').value;
-            
-            if (password !== confirmPassword) {
-                alert('As senhas não coincidem!');
-                return;
-            }
-            
-            // Aqui você normalmente enviaria os dados para o servidor
-            alert('Cadastro realizado com sucesso!');
-            this.reset();
-        });
-    </script> -->
+  </div>
+
+  <script>
+    document.getElementById('form-register').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Obtém os valores dos campos
+      const nome = document.getElementById('pnome').value.trim();
+      const sobrenome = document.getElementById('snome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const senha = document.getElementById('senha').value;
+      const csenha = document.getElementById('csenha').value;
+
+      // Validação de campos obrigatórios
+      if (!nome || !sobrenome || !email || !senha || !csenha) {
+        alert('Preencha todos os campos obrigatórios!');
+        return;
+      }
+
+      // Validação de formato de e-mail
+      const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Digite um e-mail válido!');
+        return;
+      }
+
+      // Validação de senha mínima
+      if (senha.length < 6) {
+        alert('A senha deve ter no mínimo 6 caracteres!');
+        return;
+      }
+
+      // Validação de senhas diferentes
+      if (senha !== csenha) {
+        alert('As senhas não coincidem!');
+        return;
+      }
+
+      const emailsExistentes = ["teste@gmail.com", "usuario@gmail.com"];
+      if (emailsExistentes.includes(email)) {
+        alert('Este e-mail já está cadastrado!');
+        return;
+      }
+
+      // Se tudo estiver correto
+      alert('Cadastro realizado com sucesso!');
+      
+      // Redirecionamento (simula pós-cadastro)
+      setTimeout(() => {
+        window.location.href = "telaInicial.html";
+      }, 1500);
+    });
+  </script>
 
 </body>
 </html>
