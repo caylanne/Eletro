@@ -37,8 +37,7 @@
             <input type="email" id="email" name="email" placeholder="fulano@gmail.com" required>
 
             <label for="fone"><strong>Celular:</strong></label>
-            <input type="tel" id="fone" name="fone" placeholder="(83) 99999-9999" 
-                   pattern="\(\d{2}\)\s9\s\d{4}-\d{4}" title="Formato: (83) 9 9999-9999" required>
+            <input type="tel" id="fone" name="fone" placeholder="(83) 9 9999-9999" maxlength="16" required>
 
             <label for="senha"><strong>Senha:</strong></label>
             <input type="password" id="senha" name="senha" minlength="6" placeholder="********" required>
@@ -54,36 +53,52 @@
   </div>
 
   <script>
+    // Formata automaticamente o número ao sair do campo (ex: (83) 9 9999-9999)
+    const foneInput = document.getElementById('fone');
+
+    foneInput.addEventListener('blur', (e) => {
+      let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não é número
+
+      // Se tiver exatamente 11 dígitos, formata no padrão (XX) 9 XXXX-XXXX
+      if (value.length === 11) {
+        const ddd = value.slice(0, 2);
+        const primeiro = value.slice(2, 3);
+        const meio = value.slice(3, 7);
+        const fim = value.slice(7);
+        e.target.value = `(${ddd}) ${primeiro} ${meio}-${fim}`;
+      } else {
+        alert('Digite um número de celular válido com 11 dígitos (incluindo DDD).');
+        e.target.value = ''; // limpa se estiver incorreto
+      }
+    });
+
+    // Validação do formulário
     document.getElementById('form-register').addEventListener('submit', function(e) {
       e.preventDefault();
 
-      // Obtém os valores dos campos
       const nome = document.getElementById('pnome').value.trim();
       const sobrenome = document.getElementById('snome').value.trim();
       const email = document.getElementById('email').value.trim();
       const senha = document.getElementById('senha').value;
       const csenha = document.getElementById('csenha').value;
+      const telefone = document.getElementById('fone').value.trim();
 
-      // Validação de campos obrigatórios
-      if (!nome || !sobrenome || !email || !senha || !csenha) {
+      if (!nome || !sobrenome || !email || !telefone || !senha || !csenha) {
         alert('Preencha todos os campos obrigatórios!');
         return;
       }
 
-      // Validação de formato de e-mail
       const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
       if (!emailRegex.test(email)) {
         alert('Digite um e-mail válido!');
         return;
       }
 
-      // Validação de senha mínima
       if (senha.length < 6) {
         alert('A senha deve ter no mínimo 6 caracteres!');
         return;
       }
 
-      // Validação de senhas diferentes
       if (senha !== csenha) {
         alert('As senhas não coincidem!');
         return;
@@ -95,10 +110,8 @@
         return;
       }
 
-      // Se tudo estiver correto
       alert('Cadastro realizado com sucesso!');
       
-      // Redirecionamento (simula pós-cadastro)
       setTimeout(() => {
         window.location.href = "telaInicial.html";
       }, 1500);
