@@ -1,0 +1,217 @@
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-image: url(../img/ELETRO+\ -\ COM\ -\ FUNDO.png);
+    background-size: contain;
+    background-position: center center;
+    background-attachment:fixed;
+    min-height: 100vh;
+    position: relative;
+}
+
+.card {
+    background-color: #70A1B3;
+    width: 440px;
+    height: 956px;
+    /* height: 100%; */
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 12px 16px 32px rgba(0, 0, 0, .400);
+    /* background-image: url(../img/ELETRO+\ SEM\ FUNDO.png); */
+    background-size: contain;
+    background-position: center center;
+    background-attachment:fixed;
+    min-height: 100vh;
+    position: relative;
+}
+
+.card::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("logo.png") no-repeat center;
+  background-size: 400px auto;
+  opacity: 0.08; /* deixa ela bem clarinha */
+  z-index: -1;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin-bottom: 6rem;
+}
+
+.top-bar svg {
+    width: 22px;
+    height: 22px;
+    fill: white;
+    cursor: pointer;
+    margin-top: 1.5rem;
+}
+
+/* .icons-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.icon {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btn svg {
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    fill: white;
+} */
+
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding-top: 1rem;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #698588;
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #6985887c;
+}
+
+.btn i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.footer {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #e7f3fc;
+}
+
+.imgm-fundo{
+    background-image: url(../img/ELETRO+\ -\ COM\ -\ FUNDO.png);
+    background-size: contain;
+    background-position: center center;
+    background-attachment:fixed;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* CARD BRANCO INTERNO */
+.simulacao-box {
+    background: #ffffff;
+    width: 330px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.titulo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.label {
+    color: #2c3e50;
+    font-size: 14px;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.btn-calc {
+    width: 100%;
+    padding: 14px;
+    background-color: #6d8c81;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-calc:hover {
+    background-color: #57736b;
+}
+
+.resultado {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.resumo {
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+footer {
+  text-align: center;
+  color: #777;
+  font-size: 16px;
+  margin-top: 1rem;
+}
+
+.sla{
+    text-decoration: none;
+}

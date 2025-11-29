@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="assets/img/ELETRO-SEM-FUNDO-Copia.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/simulador.css">
+    <title>Simulação de KwH</title>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <a href="telaInicial.html" class="sla">
+            <div class="top-bar">
+                <!-- Ícone voltar -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                    d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+                </svg>
+                
+                <h3 class="titulo-historico">Simulação</h3>
+                
+                <!-- Ícone sino -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 16 16">
+                    <path
+                    d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 2.598-1.528 3.78-.24.275-.472.524-.69.743-.273.273-.26.723.036.979.284.244.71.229.977-.036L2 11h12l.205.206c.267.265.693.28.977.036.295-.256.309-.706.036-.979-.218-.219-.45-.468-.69-.743C13.5 8.598 13 7.098 13 6a5.002 5.002 0 0 0-4.005-4.901z" />
+                </svg>
+            </div>
+        </a>
+            
+        <!-- TÍTULO -->
+        <h2>Simulação de KwH</h2>
+
+        <!-- CARD BRANCO INTERNO -->
+        <div class="simulacao-box">
+
+            <label class="label">🔋 Consumo (kWh)</label>
+            <input type="number" class="input" placeholder="100">
+
+            <label class="label">💲 Tarifa</label>
+            <input type="number" class="input" placeholder="0,50">
+
+            <label class="label">⏱️ Duração</label>
+            <input type="number" class="input" placeholder="0,5">
+
+            <label class="label">🔌 Carregador</label>
+            <select class="input">
+                <option>Rápido (22 kW)</option>
+                <option>Médio (7 kW)</option>
+                <option>Lento (3 kW)</option>
+            </select>
+
+            <button class="btn-calc">Calcular</button>
+
+        </div>
+
+        <!-- RESULTADO -->
+        <div class="resultado">
+            Custo: R$ 50,00
+        </div>
+
+        <div class="resumo">
+            Tempo estimado de recarga: 2 horas e 16 minutos.
+        </div>
+
+        <footer>
+            <p>Desenvolvido pela equipe da <strong>ELETRO+</strong></p>
+            <p>&copy; 2025, <strong>ELETRO+</strong> - Todos os direitos reservados</p>
+        </footer>
+    </div>
+
+
+</body>
+</html>
